@@ -17,7 +17,7 @@ function ContentUpload() {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:8000/upload', formData, {
+      const response = await axios.post('${import.meta.env.VITE_BACKEND_URL}${endpoint}', formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'multipart/form-data',

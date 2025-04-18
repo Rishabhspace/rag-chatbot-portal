@@ -17,7 +17,7 @@ function Login() {
 
     const endpoint = isSignup ? '/signup' : '/login';
     try {
-      const response = await axios.post(`http://localhost:8000${endpoint}`, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}${endpoint}`, {
         email,
         password,
       });

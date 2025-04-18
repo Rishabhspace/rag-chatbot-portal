@@ -16,11 +16,10 @@ function ChatbotTest() {
     }
 
     try {
-      const res = await axios.post(
-        'http://localhost:8000/query',
-        { question },
-        { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
-      );
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}${endpoint}`, {
+        email,
+        password,
+      });
       setResponse(res.data.response);
       setConfidence(res.data.confidence);
       setError('');
